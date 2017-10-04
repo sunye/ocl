@@ -8,11 +8,6 @@ gerson.sunye@univ-nantes.fr
 note:
     Speaker notes.
 
-[//]: # (TODO)
-[//]: #  (Tuples)
-[//]: #  (Messages)
-[//]: #  (Vérification si un attribut est nul)
-
 ----
 
 ## Plan
@@ -527,7 +522,7 @@ context Department::add(p : Professor) : Integer
 - Represented by an OCL expression preceded by the keyword `post:`
 
 ```ocl
-context Etudiant::age() : Integer
+context Student::age() : Integer
 post correct: result = (today - birthday).years()
 ```
 
