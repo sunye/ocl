@@ -55,6 +55,7 @@
 
         </div>
 
+
         <script src="bower_components/reveal.js/lib/js/head.min.js"></script>
         <script src="bower_components/reveal.js/js/reveal.js"></script>
         <script>
@@ -81,6 +82,16 @@
             ]
           });
 
+        </script>
+		  <script>
+			  Reveal.configure({ slideNumber: true });
+
+			  hljs.registerLanguage('ocl', function (hljs) {
+			  return {
+			    case_insensitive: false,
+			    keywords: 'context inv self implies'
+			  }
+		     });
         </script>
     </body>
 
