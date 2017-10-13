@@ -1080,7 +1080,7 @@ context Department inv:
     self.instructors->reject(age > 23)->isEmpty()
 
     -- with iterator
-    self.instructors->select(e | eeach.age > 50)->notEmpty()
+    self.instructors->select(each | each.age > 50)->notEmpty()
 
     -- with typed iterator
     self.instructors->select(each : Professor | each.age > 50)->notEmpty()
@@ -1187,7 +1187,7 @@ Example:
 ```ocl
 context: Department inv:
     self.instructors->exists(each: Professor |
-        e.name = "Martin")
+        each.name = "Martin")
 ```
 
 ----
