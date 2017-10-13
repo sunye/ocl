@@ -28,7 +28,7 @@ note:
 
 ## What is OCL?
 
-OCL stands for «Object Constraint Language». 
+OCL stands for «Object Constraint Language».
 
 OCL is:
 - a OMG standard (see http://www.omg.org/spec/OCL/).
@@ -56,7 +56,7 @@ Sometimes, the UML lacks precision. Suppose the following class diagram:
 ![](resources/png/marriage.png)
 </p>
 <p style="position:absolute;  left:0px; top:300px;" align="center">
-![](resources/png/anna-bob-carol.png)	
+![](resources/png/anna-bob-carol.png)
 </p>
 
 
@@ -134,7 +134,7 @@ context Person inv: age < 150
 
 ```ocl
 context Person inv: self.age < 150
-context Person inv: self.name.size() > 0
+context Person inv: self.age > 0
 ```
 ![](resources/png/person-inv.png)
 
@@ -226,21 +226,21 @@ context Etudiant inv: age > 16
 ```ocl
  context Department
     -- A department's university should not be null.
- 	inv: not self.university->oclIsUndefined()
+ 	inv: not self.university.oclIsUndefined()
 
  context University
-    -- A university must have at leat one department
+    -- A university must have at least one department
  	inv: self.department->notEmpty()
 ```
 note:
-	Navigation through private roles is possible. 
+	Navigation through private roles is possible.
 	It seems that it is also possible to navigate through non-navigable roles.
 
 ----
 
 ## Multiplicities
 <div style="position:absolute; right:0px;  width:600px;font-size: 24pt;"  align="left">
-- Le type of an expression (its return type) depends on the role's maximum multiplicity:
+- The type of an expression (its return type) depends on the role's maximum multiplicity:
 	- If equals to 1, it's a simple element.
 	- If > 1, it's a collection.
 ```ocl
@@ -306,7 +306,7 @@ context Personne inv:
 ```ocl
 context Student
 inv:
-    -- A student average grades is always greater than 4:
+    -- A student average grade is always greater than 4:
     self.grade.value->average() > 4
 ```
 ![](resources/svg/grade.svg)
@@ -362,7 +362,7 @@ context University
 
 ----
 
-## Property Definition, Intialization, and Calculation
+## Property Definition, Initialization, and Calculation
 
 ----
 
@@ -387,11 +387,11 @@ context <class-name>
 Examples:
 ```ocl
 context Professor
-def: students() : Bag(Student) = 
+def: students() : Bag(Student) =
 	self.teaches.students
 
 context Department
-def: students() : Set(Student) = 
+def: students() : Set(Student) =
 	self.instructors.teaches.student->asSet()
 ```
 </div>
@@ -490,14 +490,14 @@ body:
 	- A precondition; and
 	- A postcondition.
   - The precondition constraints the operation input set.
-  - The postcondition specifies the operation semantics. 
-  
+  - The postcondition specifies the operation semantics.
+
 <!--
 - Inspirée des types abstraits: une opération est composée d'une signature, de pré-conditions et de post-conditions.
 - Permet de contraindre l'ensemble de valeurs d'entrée d'une opération.
 - Permet de spécifier la sémantique d'une opération: ce qu'elle fait et non comment elle le fait.
 -->
-  
+
 
 ----
 
@@ -518,7 +518,7 @@ context Department::add(p : Professor) : Integer
 ## Postconditions
 
 - A postcondition is a constraint that must be verified **after** the execution of the operation.
-- Specifies what the operation must accomplish. 
+- Specifies what the operation must accomplish.
 - Represented by an OCL expression preceded by the keyword `post:`
 
 ```ocl
@@ -602,7 +602,7 @@ Definition
 
 **Tuple:**
 
- > «A Tuple is a a finite sequence of object or components, where each component is named. The component types are potentially different. »
+ > «A Tuple is a finite sequence of objects or components, where each component is named. The component types are potentially different. »
 
 **Examples:**
 
@@ -699,7 +699,7 @@ post:  observer^update(12, 14)
 note:
     The expression `observer^update(12, 14)` evaluates to true if the message `update`, with the arguments 12 and 14 was sent to the object `observer`.
 	The statement `update()` is either an operation from observer's class, or a Signal.
-	Obviously, the arguments 12 and 14, must conform to the operation's parameters.
+	Obviously, the arguments 12 and 14 must conform to the operation's parameters.
 
 
 ----
@@ -784,7 +784,7 @@ endpackage
 
 **Liskov substitution principle (LSP)**
 
-> «In an object-oriented program, if S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., an object of type T may be substituted with any object of a subtype S).» 
+> «In an object-oriented program, if S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., an object of type T may be substituted with any object of a subtype S).»
 
 ----
 ## Invariant Inheritance
@@ -799,7 +799,7 @@ endpackage
 ## Pre- and Post-Condition Inheritance
 
 - Consequences of the LSP on pre and postconditions:
-  - A precondition can only be relaxes (contrevariance)
+  - A precondition can only be relaxed (contrevariance)
   - A postcondition can only be reinforced (covariance)
 
 
@@ -826,7 +826,7 @@ endpackage
   - be more precise.
   - improve documentation.
   - keep design independent from implementation.
-  - Identify component's responsibilities. 
+  - Identify component's responsibilities.
 
 ----
 
@@ -1297,17 +1297,17 @@ Operation | Behavior
 `oclIsKindOf(t : OclType):Boolean` |
 `oclInState(s : OclState):Boolean` |
 `oclIsNew():Boolean` |
-`oclIsUndefined():Boolean` | 
-`oclIsInvalid():Boolean` | 
-`oclAsType(t : Type):Type` | 
-`allInstances():Set(T)` | 
+`oclIsUndefined():Boolean` |
+`oclIsInvalid():Boolean` |
+`oclAsType(t : Type):Type` |
+`allInstances():Set(T)` |
 
 
 Examples:
 ```
 context University
     inv: self.oclIsTypeOf(University)     
-    inv: not self.oclIsTypeOf(Department) 
+    inv: not self.oclIsTypeOf(Department)
 ```
 
 ----
@@ -1321,7 +1321,7 @@ Syntax:
 ```ocl
 let <alias> : <Type> = <ocl-expression> in <expression-with-alias>
 ```
-Example: 
+Example:
 ```ocl
 context Person inv:
     let income : Integer = self.job.salary->sum() in
@@ -1332,7 +1332,7 @@ context Person inv:
     endif
 ```
 
-- Note that this is only an alias, not an assignment. 
+- Note that this is only an alias, not an assignment.
 
 ----
 
