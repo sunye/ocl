@@ -1,4 +1,12 @@
-# ocl
+# OCL - The Object Query Language
+
+This project contains the Markdown for the following presentation:
+
+https://sunye.github.io/ocl/
+
+More information about OCL can be find in the OMG's website:
+
+http://www.omg.org/spec/OCL/ 
 
 # License
 
