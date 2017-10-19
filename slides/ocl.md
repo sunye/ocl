@@ -50,7 +50,7 @@ Sometimes, the UML lacks precision. Suppose the following class diagram:
 
 
 - How do you specify that this class only considers people born after 1900?
-- And how do you specify that cycles are not allowed (i.e., that a person cannot be an ancestral of himself)?
+- And how do you specify that cycles are not allowed (i.e., that a person cannot be an ancestror of himself)?
 
 ----
 ## What About Comments?
@@ -567,7 +567,7 @@ a.b@pre.c
 		-- the old value of b, say X,
 		-- and the new value of c of X
 
-a.b@pre.c@pre   
+a.b@pre.c@pre
 		-- the old value of b , say X,
 		-- and the old value of c of X.
 ```
@@ -578,7 +578,7 @@ a.b@pre.c@pre
 ![](resources/svg/atpre.svg)
 
 ```ocl
-a.b@pre.c -- the new value of b1.c,  c3		
+a.b@pre.c -- the new value of b1.c,  c3
 a.b@pre.c@pre  -- the old value of b1.c, c1
 a.b.c -- the new value of b2.c, c2
 ```
@@ -839,10 +839,10 @@ endpackage
 
 ##  OCL Usages
 
-- OCL expression can specify:
+- OCL expressions can specify:
 
   - Class invariants;
-  - Class attribute initialization;
+  - Class attributes initialization;
   - Class derived attributes;
   - New class properties: attributes and _query_ operations;
   - Class operations pre- and post-conditions;
@@ -869,7 +869,7 @@ note:
 
 - Code generation
   - Contract generation in Eiffel, Sather, Clojure, etc.
-  - Tool specific contract generation:  
+  - Tool specific contract generation:
     - OVal http://oval.sourceforge.net/
 	- Contracts for Java (Cofoja) https://github.com/nhatminhle/cofoja
 	- Java Modeling Language (JML)
@@ -885,7 +885,7 @@ note:
 - OCL home page: http://www.klasse.nl/ocl/
 - OCL tools: http://www.um.es/giisw/ocltools
 - OMG Specification v2.3.1 http://www.omg.org/spec/OCL/Current/
-- OMG UML 2.5 Working Group.   
+- OMG UML 2.5 Working Group.
 
 ----
 
@@ -1313,7 +1313,7 @@ Operation | Behavior
 Examples:
 ```
 context University
-    inv: self.oclIsTypeOf(University)     
+    inv: self.oclIsTypeOf(University)
     inv: not self.oclIsTypeOf(Department)
 ```
 
