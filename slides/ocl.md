@@ -3,7 +3,7 @@ The Object Constraint Language
 
 Gerson Sunyé
 
-gerson.sunye@univ-nantes.fr
+<gerson.sunye@univ-nantes.fr>
 
 note:
     Speaker notes.
