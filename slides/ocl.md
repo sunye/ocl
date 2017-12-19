@@ -517,7 +517,7 @@ body:
 ```ocl
 -- Only professors older than 30 years can be added to the department:
 context Department::add(p : Professor) : Integer
-    pre: old: not p.age > 30
+    pre old: p.age > 30
 ```
 
 ----
