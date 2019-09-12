@@ -1,0 +1,65 @@
+/************
+ *  Colors 
+************/
+
+// Palette (From http://www.colourlovers.com/palette/376594/Chicanery)
+$primary: #1c232e;
+$primary-transparent: #1c232ed3;
+//$secondary: #3c9949;
+$secondary: #008748;
+$tertiary: #5fb86b;
+$other: #03484c;
+//$other2: #008748;
+
+// Light background colors
+$light: #fff;
+$text-on-light: $primary;
+$text-on-light2: $other;
+$colored-on-light2: $secondary;
+$colored-on-light: $secondary;
+
+// Dark background colors
+$dark: $primary;
+$text-on-dark: $light;
+$colored-on-dark: $tertiary;
+
+// Block color (only for light background for now)
+$block-color: #d9e0eb;
+
+/************
+ * Sizes
+ ************/
+
+$font-weight: 300;
+$font-weight-strong: 400;
+$title-bar-offset: 160px; // to take into account vspace of h2 in regular slides (a bit random…)
+$margin-left: 89px;
+$margin-right: 89px;
+$margin-bottom: 50px;
+
+/************
+ * Overriden reveal.js variables(see ../template/settings.scss)
+ ************/
+
+$mainColor: $text-on-light;
+// $backgroundColor: white;
+// $headingColor: #fff;
+
+$mainFontSize: 44.8px;
+$smallerFontSize: calc(#{$mainFontSize} * 0.8);
+$biggerFontSize: calc(#{$mainFontSize} * 1.2);
+$mainFont: "Open Sans", "Source Sans Pro", Helvetica, sans-serif;
+$headingFont: "Yanone Kaffeesatz", "Source Sans Pro", Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: normal;
+$linkColor: $colored-on-light; // just to change color the UI
+// $linkColorHover: lighten($linkColor, 15%);
+// $selectionBackgroundColor: lighten($linkColor, 80%);
+
+$heading1Size: 112px;
+$heading2Size: 89.6px;
+$heading3Size: 58.2333px;
+
+$codeFont: "Ubuntu Mono";

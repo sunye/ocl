@@ -1,0 +1,133 @@
+@import "./stereopticon-variables.scss";
+
+.reveal {
+    // Columns
+    .columns {
+        display: flex;
+        width: 100%;
+
+        // Fix for asciidoc generation
+        .content {
+            display: flex;
+            width: 100%;
+        }
+
+        @for $i from 1 through 12 {
+            .col-#{$i} {
+                width: 100% / 12 * $i;
+                margin: auto;
+
+                & > h3 {
+                    margin-top: 0;
+                }
+
+                // Fix for asciidoc generation
+                .content {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @for $i from 1 through 100 {
+        .width-#{$i} {
+            width: 1% * $i;
+        }
+    }
+
+    // Vertical spacing
+    @for $i from 1 through 200 {
+        .vspace-#{$i}::before,
+        .vspace-after-#{$i}::after {
+            content: "";
+            display: block;
+            padding-bottom: calc(#{$i}px);
+        }
+    }
+
+    // Blocks (only used in regular slides)
+    .block {
+        background-color: $block-color;
+        padding: 0.5cm;
+        margin-right: 2cm;
+    }
+
+    .huge,
+    .huge p {
+        font-size: calc(#{$mainFontSize} * 1.5);
+    }
+
+    .bigger {
+        font-size: calc(#{$mainFontSize} * 1.2);
+    }
+
+    .center {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    div.slides {
+        counter-reset: references;
+    }
+
+    .references {
+        position: absolute;
+        bottom: $margin-bottom;
+        margin-right: $margin-right;
+    }
+
+    .reference {
+        font-size: calc(0.6 * #{$mainFontSize});
+        font-style: italic;
+        &::before {
+            counter-increment: references;
+            content: "[" counter(references) "] ";
+        }
+    }
+
+    // Title slide helpers
+    .slides section.title {
+        .subtitle {
+            margin-top: 20px;
+            font-size: 1.3em;
+        }
+        .subtitle,
+        .subtitle > * {
+            font-family: $headingFont;
+            color: $text-on-dark;
+            margin-left: $margin-left;
+            margin-right: $margin-right;
+        }
+
+        .speaker,
+        .speaker > * {
+            text-decoration: underline dashed// $colored-on-dark;
+        }
+
+        .authors {
+            margin-left: $margin-left;
+            margin-right: $margin-right;
+            margin-top: 50px;
+        }
+
+        .author {
+            display: inline-grid; 
+            margin: 30px;
+        }
+
+        .name,
+        .name > * {
+            font-weight: $font-weight-strong;
+            font-family: $mainFont;
+            color: $colored-on-dark;
+        }
+
+        .institution,
+        .institution > * {
+            font-size: 90%;
+            color: $text-on-dark;
+        }
+    }
+}
