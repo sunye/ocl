@@ -59,18 +59,13 @@ Sometimes, the UML lacks precision. Suppose the following class diagram:
 - But sometimes, they are also ambiguous.
 - Still, comments cannot avoid some situations.
 </div>
+
 <p style="position:absolute;  left:0px; top:100px;" align="center">
-![](resources/png/marriage.png)
+    <img src="resources/png/marriage.png">
 </p>
 <p style="position:absolute;  left:0px; top:300px;" align="center">
-![](resources/png/anna-bob-carol.png)
+    <img src="resources/png/anna-bob-carol.png">
 </p>
-
-
-
-
-
-
 
 ----
 
@@ -205,7 +200,7 @@ context Etudiant inv: age > 16
   - Collections of values or modeling elements.
 </div>
 <p style="position:absolute;  right:0px; top:150px; width:600px;">
-![](resources/svg/university.svg)
+<img src="resources/svg/university.svg">
 </p>
 
 
@@ -269,6 +264,7 @@ context Course
 ----
 
 ## Navigation: Special Cases
+
 <div style="position:absolute; right:0px;  width:600px;font-size: 24pt;"  align="left">
 - When there is no role name, the OCL uses the class name (in lower cases).
 - Monovalued (max multiplicity = 1) roles may be navigated as a collection.
@@ -283,10 +279,10 @@ context Person inv: self.wife->notEmpty()
 ```
 </div>
 <p style="position:absolute;  left:0px; top:100px;" align="center">
-![](resources/svg/department-professor.svg)
+<img src="resources/svg/department-professor.svg">
 </p>
 <p style="position:absolute;  left:0px; top:400px; width:350px" align="center">
-![](resources/svg/wife.svg)
+<img src="resources/svg/wife.svg">
 </p>
 
 
@@ -403,7 +399,7 @@ def: students() : Set(Student) =
 ```
 </div>
 <p style="position:absolute;  right:0px; top:150px; width:400px;" align="center">
-![](resources/svg/university.svg)
+<img src="resources/svg/university.svg">
 </p>
 
 <!--
@@ -454,7 +450,7 @@ context Person::single : Boolean
 ```
 </div>
 <p style="position:absolute;  right:0px; top:200px; width:200px;" align="center">
-![](resources/svg/course.svg)
+<img src="resources/svg/course.svg">
 </p>
 
 ----
