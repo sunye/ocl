@@ -209,7 +209,7 @@ image::resources/svg/university.svg[width=800px,align=center]
 
 [source,ocl]
 ----
-"Nantes".substring(1,3) = "Nan"
+'Nantes'.substring(1,3) = 'Nan'
 ----
 
 * Operation calls on collections use *arrows*:
@@ -336,8 +336,8 @@ image::resources/svg/grade.svg[align=center,width=800px]
 [source,ocl]
 ----
 context University
-    -- The name of student 8764423 must be "Martin".
-    inv: self.students[8764423].name = "Martin"
+    -- The name of student 8764423 must be 'Martin'.
+    inv: self.students[8764423].name = 'Martin'
 ----
 
 * When the qualifier is not specified, the result is a collection:
@@ -345,8 +345,8 @@ context University
 [source,ocl]
 ----
 context University
-    -- There is at least one student named "Martin":
-    inv: self.students->exists(each | each.name = "Martin")
+    -- There is at least one student named 'Martin':
+    inv: self.students->exists(each | each.name = 'Martin')
 ----
 
 image:resources/svg/qualified-association.svg[align=center,width=800px]
@@ -931,10 +931,10 @@ pre:p.oclInState(Unavailable::Holydays)
 [width="100%",cols="50%,50%",options="header",]
 |===
 |Type |Operations
-|`+Integer+` |=, *, +, -, /, abs(), div(), mod(),max(), min()
-|`+Real+` |=, *, +, -, /, abs(), floor(), round(),max(), min(), >, <, <=, >=, …
+|`+Integer+` |=, *, +, -, /, abs(), div(), mod(), max(), min()
+|`+Real+` |=, *, +, -, /, abs(), floor(), round(), max(), min(), >, <, <=, >=, …
 |`+String+` |=, size(), concat(), substring(), toInteger(), toReal(), toUpper(), toLower()
-|`+Boolean+` |or, xor, and, not, implies
+|`+Boolean+` | or, xor, and, not, implies
 |`+UnlimitedNatural+` |*,+,/
 |===
 
@@ -1135,7 +1135,7 @@ Example:
 ----
 context: Department inv:
     self.instructors->exists(each: Professor |
-        each.name = "Martin")
+        each.name = 'Martin')
 ----
 
 == Advanced Operations on Collections
