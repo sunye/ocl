@@ -8,14 +8,12 @@
 :revealjs_history: true
 :revealjs_margin: 0
 :source-highlighter: highlightjs
+:imagesdir: images
+:revealjs_plugins: ./src/js/revealjs-plugins.js
 
-= OCL
+= OCL: The Object Constraint Language
 
-The Object Constraint Language
-
-Gerson Sunyé
-
-gerson.sunye@univ-nantes.fr
+Gerson Sunyé <gerson.sunye@univ-nantes.fr>
 
 
 == License
@@ -58,7 +56,7 @@ OCL stands for «Object Constraint Language».
 
 Sometimes, the UML lacks precision. Suppose the following class diagram:
 
-image::resources/png/family.png[align=center,width=400px]
+image::family.png[align=center,width=400px]
 
 * How do you specify that this class only considers people born after 1900? 
 * And how do you specify that cycles are not allowed (i.e., that a person cannot be an ancestor of himself)?
@@ -71,9 +69,9 @@ image::resources/png/family.png[align=center,width=400px]
 
 [.col-6]
 ****
-image::resources/png/marriage.png[align=center,width=600px]
+image::marriage.png[align=center,width=600px]
 
-image::resources/png/anna-bob-carol.png[align=center,width=600px]
+image::anna-bob-carol.png[align=center,width=600px]
 ****
 
 [.col-6]
@@ -93,7 +91,7 @@ inv: self.wife->notEmpty() implies self.wife.husband = self and
     self.husband->notEmpty() implies self.husband.wife = self
 ----
 
-image::resources/png/marriage.png[align=center,width=800px]
+image::marriage.png[align=center,width=800px]
 
 == Plan
 
@@ -121,9 +119,9 @@ image::resources/png/marriage.png[align=center,width=800px]
 
 * Invariants can be placed directly on the modeling element, between braces ({}) or on a comment attached to it:
 
-image::resources/png/person-inv.png[align=center,width=400px]
+image::person-inv.png[align=center,width=400px]
 
-image::resources/png/person-inv-note.png[align=center,width=800px]
+image::person-inv-note.png[align=center,width=800px]
 
 == Invariants: Textual Notation
 
@@ -148,14 +146,14 @@ context Person inv: self.age < 150
 context Person inv: self.age > 0
 ----
 
-image::resources/png/person-inv.png[align=center,width=600px]
+image::person-inv.png[align=center,width=600px]
 
 == Context Properties
 
 * The context allows the access to some properties from the attached modeling element.
 * In the case of a UML class, this means: attributes, query operations, and states (from attached state machines).
 
-image::resources/png/person.png[align=center,width=600px]
+image::person.png[align=center,width=600px]
 
 [source,ocl]
 ----
@@ -200,7 +198,7 @@ While it is possible to check a state within an invariant, this is not logical.
 ** Collections of values or modeling elements.
 
 [.col-6]
-image::resources/svg/university.svg[width=800px,align=center]
+image::university.svg[width=800px,align=center]
 --
 
 == Operation Call Syntax
@@ -224,7 +222,7 @@ image::resources/svg/university.svg[width=800px,align=center]
 
 An OCL expression can navigate through model associations using the opposite role (association end):
 
-image::resources/svg/univ-department.svg[align=center,width=800px]
+image::univ-department.svg[align=center,width=800px]
 
 [source,ocl]
 ----
@@ -248,7 +246,7 @@ Navigation through private roles is possible. It seems that it is also possible 
 [.columns]
 --
 [.col-4]
-image:resources/svg/course.svg[align=center,width=600px]
+image::course.svg[align=center,width=600px]
 
 [.col-8]
 ****
@@ -278,9 +276,9 @@ context Course
 
 [.col-4]
 ****
-image::resources/svg/department-professor.svg[align=center,align=400px]
+image::department-professor.svg[align=center,align=400px]
 
-image::resources/svg/wife.svg[align=center,align=400px]
+image::wife.svg[align=center,align=400px]
 ****
 
 [.col-8]
@@ -312,7 +310,7 @@ inv:
     self.grade.value->average() > 4
 ----
 
-image::resources/svg/grade.svg[align=center,width=800px]
+image::grade.svg[align=center,width=800px]
 
 
 == Navigation through Association-Classes
@@ -326,7 +324,7 @@ context Grade inv:
     self.follows.hours > 3
 ----
 
-image::resources/svg/grade.svg[align=center,width=800px]
+image::grade.svg[align=center,width=800px]
 
 
 == Qualified Associations
@@ -349,7 +347,7 @@ context University
     inv: self.students->exists(each | each.name = 'Martin')
 ----
 
-image:resources/svg/qualified-association.svg[align=center,width=800px]
+image::qualified-association.svg[align=center,width=800px]
 
 == Plan 
 
@@ -402,7 +400,7 @@ def: students() : Set(Student) =
 ----
 
 [.col-6]
-image::resources/svg/university.svg[align=center,width=600px]
+image::university.svg[align=center,width=600px]
 --
 
 == Property Initialization
@@ -432,7 +430,7 @@ context Professor::wage : Integer
 --
 
 [.col-4]
-image::resources/svg/course.svg[align=center,width=600px]
+image::course.svg[align=center,width=600px]
 
 [.col-8]
 ****
@@ -565,7 +563,7 @@ a.b@pre.c@pre
 
 == Previous Values (2/2)
 
-image::resources/svg/atpre.svg[align=center,width=800px]
+image::atpre.svg[align=center,width=800px]
 
 [source,ocl]
 ----
@@ -1193,7 +1191,7 @@ self.children->closure(children)
 ----
 
 [.col-6]
-image::resources/svg/family.svg[align=center,width=600px]
+image::family.svg[align=center,width=600px]
 --
 
 == Iterate
