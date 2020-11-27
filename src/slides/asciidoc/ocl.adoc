@@ -1,25 +1,18 @@
 include::../common/commons.adoc[]
 
-////
-:revealjs_center: false
-:revealjs_display: flex
-:revealjs_transition: none
-:revealjs_slideNumber: c/t
-:revealjs_theme: stereopticon
-:revealjs_width: 1920
-:revealjs_height: 1080
-:revealjs_history: true
-:revealjs_margin: 0
-:source-highlighter: highlightjs
-:imagesdir: images
-:revealjs_plugins: ./src/js/revealjs-plugins.js
-//// 
- 
 = OCL: The Object Constraint Language
 
 Gerson Sunyé <gerson.sunye@univ-nantes.fr>
 
-
+== Java
+ 
+[source,java,linenums]
+----
+public class Collection extends List {
+    private String name;
+}
+----
+ 
 == License
 
 
@@ -85,7 +78,7 @@ image::anna-bob-carol.png[align=center,width=600px]
 
 * By adding _constraints_ to modeling elements:
  
-[source,ocl]
+[source,ocl]    
 ----
 context Person
 inv: self.wife->notEmpty() implies self.wife.husband = self and

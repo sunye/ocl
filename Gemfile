@@ -8,3 +8,4 @@ gem 'asciidoctor-revealjs' # latest released version
 gem 'json'
 
 gem 'asciidoctor-diagram'
+gem 'rouge'
