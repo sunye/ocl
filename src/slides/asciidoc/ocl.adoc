@@ -832,18 +832,16 @@ Language Details
 
 == Access to Class-level Properties
 
-* Class-level properties are accessed through double-colons.
+* Class-level properties are accessed through double-colons (`::`)
 
-Class-level attributes:
-
+.Class-level attributes
 [source,ocl]
 ----
 context Professor inv:
     self.wage < Professor::maximumWage
 ----
 
-Class-level query operations:
-
+.Class-level query operations:
 [source,ocl]
 ----
 context Professor inv:
@@ -857,7 +855,7 @@ context Professor inv:
 [source,ocl]
 ----
 context Professor 
-inv: self.title = Title::full implies self.wage > 10+`
+inv: self.title = Title::full implies self.wage > 10
 ----
 
 * Nested states (from the attached state machine) are preceded by the container state name and double-colons:
@@ -873,14 +871,15 @@ pre:p.oclInState(Unavailable::Holydays)
 
 [cols=",",options="header",]
 |===
-|Type |Values
-|`+OclInvalid+` |invalid
-|`+OclVoid+` |null, invalid
-|`+Boolean+` |true, false
-|`+Integer+` |1, -5, 2, 34, 26524, etc.
-|`+Real+` |1.5, 3.14, etc.
-|`+String+` |``To be or not to be…''
-|`+UnlimitedNatural+` |0, 1, 2, 42, … , *
+|Type | Values
+
+|`OclInvalid` | invalid
+|`OclVoid` | null, invalid
+|`Boolean` | true, false
+|`Integer` | 1, -5, 2, 34, 26524, etc.
+|`Real` | 1.5, 3.14, etc.
+|`String` | 'To be or not to be...'
+|`UnlimitedNatural` | 0, 1, 2, 42, ... , *
 |===
 
 
@@ -888,7 +887,7 @@ pre:p.oclInState(Unavailable::Holydays)
 
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
-|`+Type+` |Description |Obtained from |Examples
+| Type | Description |Obtained from |Examples
 |`+Set+` |unordered set. |Simple navigation | {1, 2, 45, 4}
 |`+OrderedSet+` |ordered set. |Navigation through an ordered association end (labelled with `+{ordered}+`) | {1, 2, 4, 45}
 |===
@@ -907,11 +906,27 @@ pre:p.oclInState(Unavailable::Holydays)
 [cols=",,",options="header",]
 |===
 |Type |Conforms to |Condition
-|Set(T1) |Collection(T2) |If T1 conforms to T2
-|Sequence(T1) |Collection(T2) |If T1 conforms to T2
-|Bag(T1) |Collection(T2) |If T1 conforms to T2
-|OrderedSet(T1) |Collection(T2) |If T1 conforms to T2
-|Integer |Real |
+
+|`Set(T1)` 
+| `Collection(T2)` 
+|If `T1` conforms to `T2`
+
+|`Sequence(T1)` 
+| `Collection(T2)` 
+| If `T1` conforms to `T2`
+
+
+|`Bag(T1)` 
+| `Collection(T2)` 
+| If `T1` conforms to `T2`
+
+|`OrderedSet(T1)` 
+| `Collection(T2)` 
+| If `T1` conforms to `T2`
+
+| `Integer` 
+| `Real`
+|
 |===
 
 
@@ -920,11 +935,21 @@ pre:p.oclInState(Unavailable::Holydays)
 [width="100%",cols="50%,50%",options="header",]
 |===
 |Type |Operations
-|`+Integer+` |=, *, +, -, /, abs(), div(), mod(), max(), min()
-|`+Real+` |=, *, +, -, /, abs(), floor(), round(), max(), min(), >, <, <=, >=, …
-|`+String+` |=, size(), concat(), substring(), toInteger(), toReal(), toUpper(), toLower()
-|`+Boolean+` | or, xor, and, not, implies
-|`+UnlimitedNatural+` |*,+,/
+
+|`+Integer+` 
+| `=, *, +, -, /, abs(), div(), mod(), max(), min()`
+
+|`+Real+` 
+| `=, *, +, -, /, abs(), floor(), round(), max(), min(), >, <, <=, >=, ...`
+
+|`+String+` 
+| `=, size(), concat(), substring(), toInteger(), toReal(), toUpperCase(), toLowerCase()`
+
+|`+Boolean+` 
+| `or, xor, and, not, implies`
+
+|`+UnlimitedNatural+` 
+| `*, +, /`
 |===
 
 
@@ -939,8 +964,7 @@ pre:p.oclInState(Unavailable::Holydays)
 |`+count(<elem>)+` |Number of occurrences of `+<elem>+` in the collection.
 |===
 
-Examples:
-
+.Examples:
 [source,ocl]
 ----
 {}->isEmpty()
@@ -949,25 +973,10 @@ Examples:
 {1,2,3,4,5}->count(2) = 1
 ----
 
-'''''
-
-== Complex Operations on Collections
-
-[cols=",",options="header",]
-|===
-|Operation |Behavior
-|`+select()+` |Selects (filters) a subset of the collection.
-|`+reject()+` |
-|`+collect()+` |Evaluates an expression for each element in the collection.
-|`+collectNested()+` |
-| `+forAll()+` |
-| `+exists()+` |
-| `+closure()+` |
-| `+iterate()+`|
-|===
 
 
-== Complex Operations on Collections
+== Iterator Operations on Collections
+
 Complex operations use an iterator (named `+each+` by convention), a variable that evaluates to each collection element.
 
 [width="100%",cols="50%,50%",options="header",]
@@ -1169,25 +1178,19 @@ Syntax:
 source->closure(v : <class-name> | <expression-with-v>)
 ----
 
-Example:
+== Closure Example
 
-[.columns]
---
-[.col-6]
+image::family.svg[align=center,width=600px]
+
 [source,ocl]
 ----
 context Person
-def descendants() : Set(Person) =
-self.children->closure(children)
+def descendants() : Set(Person) = self.children->closure(children)
 ----
-
-[.col-6]
-image::family.svg[align=center,width=600px]
---
 
 == Iterate
 
-Generic operation on collections.
+Generic iterator operation on collections.
 
 Syntax:
 
@@ -1255,7 +1258,7 @@ context University
     inv: not self.oclIsTypeOf(Department)
 ----
 
-== `+Let+`
+== Let...in (alias)
 
 When an OCL sub-expression appears several times on a constraint, it is possible to use an *alias* to replace if:
 
