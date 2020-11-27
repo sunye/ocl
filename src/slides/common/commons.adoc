@@ -7,10 +7,10 @@
 :revealjs_height: 1080
 :revealjs_history: true
 :revealjs_margin: 0
-:source-highlighter: rouge
-:rouge-style: magritte
 :sectids!:
 //:revealjs_plugins: src/js/revealjs-plugins.js
+:source-highlighter: rouge
+:rouge-css: style 
 :imagesdir: images
 :includedir: includes
 :docinfo: shared

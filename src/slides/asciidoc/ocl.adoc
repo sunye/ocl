@@ -1,17 +1,9 @@
-include::../common/commons.adoc[]
 
 = OCL: The Object Constraint Language
+include::../common/commons.adoc[]
 
 Gerson Sunyé <gerson.sunye@univ-nantes.fr>
 
-== Java
- 
-[source,java,linenums]
-----
-public class Collection extends List {
-    private String name;
-}
-----
  
 == License
 
