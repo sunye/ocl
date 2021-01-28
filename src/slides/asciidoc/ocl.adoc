@@ -166,14 +166,14 @@ While it is possible to check a state within an invariant, this is not logical.
 
 == Plan 
 
-1. Introduction 
-2. Invariants 
-3. *Model Navigation* 
-3. Property Definition 
-4. Operation Specification 
-5. Advanced Topics 
-6. Conclusion 
-7. Appendix - Language Details
+. Introduction 
+. Invariants 
+. *Model Navigation* 
+. Property Definition 
+. Operation Specification 
+. Advanced Topics 
+. Conclusion 
+. Appendix - Language Details
 
 [.impact]
 == Model Navigation
@@ -341,14 +341,14 @@ context University
 
 == Plan 
 
-1. Introduction 
-2. Invariants 
-2. Model Navigation 
-3. *Property Definition* 
-4. Operation Specification 
-5. Advanced Topics 
-6. Conclusion 
-7. Appendix - Language Details
+. Introduction 
+. Invariants 
+. Model Navigation 
+. *Property Definition* 
+. Operation Specification 
+. Advanced Topics 
+. Conclusion 
+. Appendix - Language Details
 
 
 [.impact]
@@ -741,14 +741,14 @@ ____
 
 == Plan
 
-1. Introduction 
-2. Invariants 
-2. Model Navigation 
-3. Property Definition 
-4. Operation Specification 
-5. Advanced Topics 
-5. *Conclusion* 
-6. Appendix - Language Details
+. Introduction 
+. Invariants 
+. Model Navigation 
+. Property Definition 
+. Operation Specification 
+. Advanced Topics 
+. *Conclusion* 
+. Appendix - Language Details
 
 [.impact]
 == Conclusion
