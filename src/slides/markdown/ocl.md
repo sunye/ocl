@@ -625,7 +625,7 @@ Tuple {name:'Colette', grades:Collection(Integer) = Set{12, 13, 9},
 **Equivalent expressions:**
 ```ocl
 Tuple {name: String = 'Martin,' age: Integer = 42}
-Tuple {name = 'Martin,' age = 42}
+Tuple {name = 'Martin', age = 42}
 Tuple {age = 42, name = 'Martin'}
 ```
 
