@@ -1,0 +1,3 @@
+[submodule "resources/defaults"]
+	path = resources/defaults
+	url = https://gitlab.univ-nantes.fr/gl/defaults.git

@@ -2,18 +2,29 @@
 :revealjs_display: flex
 :revealjs_transition: none
 :revealjs_slideNumber: c/t
-:revealjs_theme: stereopticon
-:revealjs_width: 1920
+:revealjs_theme: black
+:revealjs_customtheme: css/stereopticon.css
+:revealjs_width: 1880
 :revealjs_height: 1080
 :revealjs_history: true
 :revealjs_margin: 0
-:sectids!:
-//:revealjs_plugins: src/js/revealjs-plugins.js
+:revealjs_progress: true
+:customcss: css/custom.css
 :source-highlighter: rouge
-:rouge-css: style 
+:rouge-css: style
+:sectids!:
+:revealjs_plugins: static/js/revealjs-plugins.js
 :imagesdir: images
 :includedir: includes
 :docinfo: shared
 :docinfodir: ../html 
 :icons: font
-:plantuml-config: ../common/plantuml.config
+//:plantuml-config: {includedir}/plantuml.config
+//:plantuml-includedir: ../../diagram/plantuml/
+:plantumldir: ../../diagram/plantuml
+:diagramdir: ../../diagram
+:javasources: ../../main/java
+:Author:    Gerson Sunyé
+:Email:     gerson.sunye@univ-nantes.fr
+:Date:      December 2023
+:Revision:  1.0
