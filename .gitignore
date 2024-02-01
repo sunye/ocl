@@ -1,3 +1,9 @@
 .DS_Store
 reveal.js/node_modules
 reveal.js/test
+build/
+resources/
+.bundle/
+.editorconfig
+.vscode/
+Gemfile.lock
