@@ -19,8 +19,6 @@
 :docinfo: shared
 :docinfodir: ../html 
 :icons: font
-//:plantuml-config: {includedir}/plantuml.config
-//:plantuml-includedir: ../../diagram/plantuml/
 :plantumldir: ../../diagram/plantuml
 :diagramdir: ../../diagram
 :javasources: ../../main/java

@@ -42,8 +42,7 @@ $(REVEALJS_DIR):
 	git clone -b 4.5.0 --depth 1 https://github.com/hakimel/reveal.js.git $(REVEALJS_DIR) 2> /dev/null || (cd $(REVEALJS_DIR) ; git pull)
 
 $(MDE):
-	wget --directory-prefix=$(SITE_DIR) https://github.com/highlightjs/highlightjs-mde-languages/releases/download/0.1.0/mde-languages.min.js 
-
+	test ! -f $(MDE) || wget --directory-prefix=$(SITE_DIR)/js https://github.com/highlightjs/highlightjs-mde-languages/releases/download/0.1.0/mde-languages.min.js 
 
 clean:
 	rm -rf build

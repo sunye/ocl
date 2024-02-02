@@ -1,8 +1,8 @@
 
+include::./includes/commons.adoc[]
 = OCL: The Object Constraint Language
-include::../common/commons.adoc[]
 
-Gerson Sunyé <gerson.sunye@univ-nantes.fr>
+//Gerson Sunyé <gerson.sunye@univ-nantes.fr>
 
  
 == License
@@ -855,9 +855,9 @@ image::atpre.svg[align=center,width=800px]
 
 [source,ocl]
 ----
-a.b@pre.c -- the new value of b1.c,  
-c3 a.b@pre.c@pre  -- the old value of b1.c, 
-c1 a.b.c -- the new value of b2.c, c2+`
+a.b@pre.c -- the new value of b1.c :  c3 
+a.b@pre.c@pre  -- the old value of b1.c : c1 
+a.b.c -- the new value of b2.c : c2
 ----
 
 == Plan
@@ -924,7 +924,7 @@ context University def:
 statistics : Set(Tuple(dpt : Department, studentNb:Integer,
                                graduated: Set(Student), average: Integer)) =
      department->collect(each |
-       Tuple {dpt : Department = each,
+       Tuple { dpt : Department = each,
            studentNb: Integer = each.students()->size(),
            graduated: Set(Student) = each.students()->select(graduated()),
            average: Integer = each.students()->collect(note)->avg()
@@ -1170,7 +1170,7 @@ pre:p.oclInState(Unavailable::Holydays)
 
 [width="100%",cols="30%,70%",options="header",]
 |===
-|Operation | Behavior
+|Operation | Behavior
 |`+collectNested(<exp>)+` |Similar to `+collect()+`, but does not flatten the result if it is a collections of collections.
 |`+closure()+` |Recursively evaluates and expression.
 |`+iterate()+` |Generic operation that applies to any collection.
@@ -1316,9 +1316,11 @@ context Person inv:
 [.impact]
 == Thank you for your attention!
 
-[%notitle]
+[.text-small]
 == License
 
+[.font-size-64]
+--
 *Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)*
 
 [.center]
@@ -1335,3 +1337,4 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 * *ShareAlike* — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
 *No additional restrictions* — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+--
