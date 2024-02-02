@@ -128,16 +128,11 @@ context Person inv: age < 150
 * Every OCL expression is attached to a specific *context*: a UML modeling element.
 * The context may be referenced inside the expression using the `+self+` keyword.
 
-[source,ocl]
-----
-context Person inv: self.age < 150
-context Person inv: self.age > 0
-----
-
 [plantuml,align=center]
 ----
 scale 1024 width
 scale 800 height
+hide circle
 
 class "Person\n {age > 0 and age < 150}" as person {
 	+ name : String
@@ -145,14 +140,35 @@ class "Person\n {age > 0 and age < 150}" as person {
 }
 ----
 
-//image::person-inv.png[align=center,width=600px]
+[source,ocl]
+----
+context Person inv: self.age < 150
+context Person inv: self.age > 0
+----
 
+[.columns.is-vcentered]
 == Context Properties
 
+[.column]
+--
 * The context allows the access to some properties from the attached modeling element.
 * In the case of a UML class, this means: attributes, query operations, and states (from attached state machines).
+--
 
-image::person.png[align=center,width=600px]
+[.column]
+--
+[plantuml,, svg, align=center, width=400px]
+----
+hide circle
+
+class "Person" {
+    + birthday : Date
+	+ firstName : String
+	+ lastName : String
+    + gender : enum {male, female}
+	+ age() : Integer
+}
+----
 
 [source,ocl]
 ----
@@ -162,6 +178,7 @@ inv:
   self.age() >= 0 and
   self.oclInState(Single)
 ----
+--
 
 [.notes]
 --
@@ -220,22 +237,34 @@ image::university.svg[width=800px,align=center]
 
 An OCL expression can navigate through model associations using the opposite role (association end):
 
-image::univ-department.svg[align=center,width=800px]
+[plantuml,,svg, align=center,width=800px]
+....
+hide circle
+class University {
+    name: String
+}
+class Department {
+    name: String
+    add(Professor)
+}
+University "[1]\n university" - "[*]\n departments" Department : \t\t\t\t\t
+....
 
 [source,ocl]
 ----
 context Department 
-    -- A department’s university should not be null. 
+    -- A department's university should not be null. 
     inv: not self.university.oclIsUndefined()
 
 context University
     -- A university must have at least one department 
-    inv: self.department->notEmpty() 
+    inv: self.departments->notEmpty() 
 ----
     
 [.notes]
 --
-Navigation through private roles is possible. It seems that it is also possible to navigate through non-navigable roles.
+Navigation through private roles is possible. 
+It seems that it is also possible to navigate through non-navigable roles.
 --
 
 [.columns]
@@ -249,8 +278,8 @@ image::course.svg[align=center,width=600px]
 [.column]
 --
 .The type of an expression (its return type) depends on the role’s maximum multiplicity:
-* If equals to 1, it’s a simple element.
-* If > 1, it’s a collection.
+* If equals to 1, it's a simple element.
+* If > 1, it's a collection.
 
 [source,ocl]
 ----
